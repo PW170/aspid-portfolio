@@ -32,12 +32,37 @@ const schema = defineSchema(
       role: v.optional(roleValidator), // role of the user. do not remove
     }).index("email", ["email"]), // index for the email. do not remove or modify
 
-    // add other tables here
+    projects: defineTable({
+      title: v.string(),
+      description: v.string(),
+      imageUrl: v.optional(v.string()),
+      tags: v.array(v.string()),
+      link: v.optional(v.string()),
+      githubLink: v.optional(v.string()),
+      featured: v.boolean(),
+    }).index("by_featured", ["featured"]),
 
-    // tableName: defineTable({
-    //   ...
-    //   // table fields
-    // }).index("by_field", ["field"])
+    skills: defineTable({
+      name: v.string(),
+      category: v.string(), // "Frontend", "Backend", "Design", "Tools"
+      level: v.optional(v.number()), // 1-100
+    }),
+
+    experiences: defineTable({
+      title: v.string(),
+      company: v.string(),
+      startDate: v.string(),
+      endDate: v.optional(v.string()),
+      description: v.string(),
+      current: v.boolean(),
+    }).index("by_startDate", ["startDate"]),
+
+    messages: defineTable({
+      name: v.string(),
+      email: v.string(),
+      message: v.string(),
+      read: v.boolean(),
+    }),
   },
   {
     schemaValidation: false,

@@ -1,0 +1,28 @@
+import { cn } from "@/lib/utils";
+import { HTMLMotionProps, motion } from "framer-motion";
+import React from "react";
+
+interface GlassCardProps extends HTMLMotionProps<"div"> {
+  children: React.ReactNode;
+  className?: string;
+  hoverEffect?: boolean;
+}
+
+export function GlassCard({ children, className, hoverEffect = false, ...props }: GlassCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className={cn(
+        "glass rounded-2xl p-6 transition-all duration-300",
+        hoverEffect && "hover:scale-[1.02] hover:shadow-xl hover:bg-card/50 cursor-pointer",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  );
+}
