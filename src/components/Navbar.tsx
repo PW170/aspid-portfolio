@@ -4,17 +4,20 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
+    { name: "Experience", href: "/experience" },
+    { name: "Contact", href: "/contact" },
   ];
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <motion.nav
@@ -34,13 +37,18 @@ export function Navbar() {
         {/* Desktop Menu - Button Box */}
         <div className="hidden md:flex items-center space-x-1 bg-white/5 rounded-full px-2 py-1 border border-white/5 mx-4">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.name}
-              href={link.href}
-              className="text-foreground/80 hover:text-primary hover:bg-white/10 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300"
+              onClick={() => navigate(link.href)}
+              className={cn(
+                "px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300",
+                isActive(link.href) 
+                  ? "bg-primary/20 text-primary" 
+                  : "text-foreground/80 hover:text-primary hover:bg-white/10"
+              )}
             >
               {link.name}
-            </a>
+            </button>
           ))}
         </div>
         
@@ -89,14 +97,21 @@ export function Navbar() {
             className="absolute top-full left-0 right-0 mt-2 glass rounded-2xl border border-white/10 overflow-hidden p-2 flex flex-col gap-1 shadow-xl bg-black/60 backdrop-blur-xl"
           >
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
-                className="text-foreground/80 hover:text-primary hover:bg-white/10 block px-4 py-3 rounded-xl text-base font-medium transition-colors text-center"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  navigate(link.href);
+                  setIsOpen(false);
+                }}
+                className={cn(
+                  "block px-4 py-3 rounded-xl text-base font-medium transition-colors text-center w-full",
+                  isActive(link.href)
+                    ? "bg-primary/20 text-primary"
+                    : "text-foreground/80 hover:text-primary hover:bg-white/10"
+                )}
               >
                 {link.name}
-              </a>
+              </button>
             ))}
             <div className="h-px bg-white/10 my-1 mx-4" />
             {isAuthenticated ? (
