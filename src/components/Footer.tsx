@@ -5,19 +5,11 @@ export function Footer() {
     <footer className="glass mt-20 border-t border-white/10">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center space-x-6">
-          <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href="https://github.com/PW170" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
             <span className="sr-only">GitHub</span>
             <Github className="h-6 w-6" />
           </a>
-          <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-            <span className="sr-only">LinkedIn</span>
-            <Linkedin className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-            <span className="sr-only">Twitter</span>
-            <Twitter className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href="mailto:pranavwatkar45@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
             <span className="sr-only">Email</span>
             <Mail className="h-6 w-6" />
           </a>
