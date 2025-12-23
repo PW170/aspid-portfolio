@@ -54,23 +54,14 @@ export function Navbar() {
         
         {/* Auth Button */}
         <div className="hidden md:block pr-1">
-          {isAuthenticated ? (
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="rounded-full hover:bg-white/10 text-xs h-8 px-4" 
+          {isAuthenticated && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="rounded-full hover:bg-white/10 text-xs h-8 px-4"
               onClick={() => navigate("/dashboard")}
             >
               Dashboard
-            </Button>
-          ) : (
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="rounded-full hover:bg-white/10 text-xs h-8 px-4" 
-              onClick={() => navigate("/auth")}
-            >
-              Sign In
             </Button>
           )}
         </div>
@@ -114,21 +105,13 @@ export function Navbar() {
               </button>
             ))}
             <div className="h-px bg-white/10 my-1 mx-4" />
-            {isAuthenticated ? (
-              <Button 
-                variant="ghost" 
-                className="w-full justify-center rounded-xl hover:bg-white/10" 
+            {isAuthenticated && (
+              <Button
+                variant="ghost"
+                className="w-full justify-center rounded-xl hover:bg-white/10"
                 onClick={() => navigate("/dashboard")}
               >
                 Dashboard
-              </Button>
-            ) : (
-              <Button 
-                variant="ghost" 
-                className="w-full justify-center rounded-xl hover:bg-white/10" 
-                onClick={() => navigate("/auth")}
-              >
-                Sign In
               </Button>
             )}
           </motion.div>
