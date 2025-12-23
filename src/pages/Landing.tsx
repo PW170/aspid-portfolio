@@ -26,9 +26,10 @@ export default function Landing() {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6">
-                Building Digital <br />
+                Scale Retail,
+                <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                  Experiences
+                  Realize Dreams
                 </span>
               </h1>
               <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
