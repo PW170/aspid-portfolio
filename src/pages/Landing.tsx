@@ -33,7 +33,7 @@ export default function Landing() {
                 </span>
               </h1>
               <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                I'm a Full Stack Developer passionate about creating beautiful, functional, and user-centered digital products.
+                Hi, I'm Pranav (known online as Aspid), a young and ambitious web developer passionate about turning ideas into powerful digital realities.
               </p>
               <div className="flex justify-center gap-4">
                 <Button size="lg" className="rounded-full" onClick={() => navigate("/projects")}>
