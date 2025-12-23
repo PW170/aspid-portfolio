@@ -12,7 +12,6 @@ import "./types/global.d.ts";
 // Import pages directly to avoid lazy loading delays
 import Landing from "./pages/Landing.tsx";
 import AuthPage from "./pages/Auth.tsx";
-import Dashboard from "./pages/Dashboard.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Projects from "./pages/Projects.tsx";
 import Skills from "./pages/Skills.tsx";
@@ -57,8 +56,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/skills" element={<Skills />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/auth" element={<AuthPage redirectAfterAuth="/dashboard" />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/auth" element={<AuthPage redirectAfterAuth="/" />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
