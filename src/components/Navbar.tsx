@@ -30,7 +30,7 @@ export function Navbar() {
         {/* Logo */}
         <div className="flex-shrink-0 cursor-pointer pl-2" onClick={() => navigate("/")}>
           <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-            Portfolio
+            Aspid
           </span>
         </div>
         
