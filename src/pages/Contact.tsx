@@ -27,7 +27,7 @@ export default function Contact() {
       await sendMessage(formData);
       toast.success("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
+    } catch {
       toast.error("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);

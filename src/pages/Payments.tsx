@@ -5,43 +5,59 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Check, Clock3, Shield, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { LucideIcon } from "lucide-react";
 
-const paymentPlans = [
+interface PaymentPlan {
+  title: string;
+  price: string;
+  timeline: string;
+  description: string;
+  features: string[];
+}
+
+interface PaymentHighlight {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+const paymentPlans: PaymentPlan[] = [
   {
-    title: "Basic",
-    price: "$25",
-    timeline: "3-day delivery",
+    title: "Send money <111$",
+    price: "< $111",
+    timeline: "Instant transfer",
     description:
-      "Essential landing page or personal site to get you started online.",
-    features: ["Single page layout", "Mobile responsive", "Basic SEO setup"],
-  },
-  {
-    title: "Decent",
-    price: "$50",
-    timeline: "1-week delivery",
-    description:
-      "Multi-page website with custom styling and interactive elements.",
+      "Send me money from projects or personally below 111 USD or below 94 euros.",
     features: [
-      "Up to 5 pages",
-      "Contact form integration",
-      "Social media connection",
+      "Secure payment processing",
+      "Direct personal transfer",
+      "Project milestone payment",
     ],
   },
   {
-    title: "Ecommerce",
-    price: "$150",
-    timeline: "2-week delivery",
+    title: "Large payment",
+    price: "> $111",
+    timeline: "Secure transfer",
     description:
-      "Full online store setup with product management and payment processing.",
+      "Payments above 111USD or 94 EURO are large payments, use this gateway for large payments.",
     features: [
-      "Product catalog setup",
-      "Shopping cart & checkout",
-      "Admin dashboard training",
+      "Escrow protection",
+      "International compliance",
+      "Dedicated support",
     ],
   },
 ];
 
-const paymentHighlights = [
+
+const paymentHighlights: PaymentHighlight[] = [
   {
     title: "Secure Milestone Releases",
     description:
@@ -108,7 +124,7 @@ export default function Payments() {
         </motion.div>
 
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {paymentPlans.map((plan) => (
+          {paymentPlans.map((plan: PaymentPlan) => (
             <GlassCard
               key={plan.title}
               hoverEffect
@@ -128,16 +144,148 @@ export default function Payments() {
                 <p className="text-sm text-muted-foreground">{plan.timeline}</p>
               </div>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                {plan.features.map((feature) => (
+                {plan.features.map((feature: string) => (
                   <li key={feature} className="flex items-start gap-3">
                     <Check className="h-4 w-4 text-primary mt-0.5" />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <Button className="mt-auto" onClick={() => navigate("/contact")}>
-                Start this plan
-              </Button>
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button className="mt-auto">Start this plan</Button>
+                </SheetTrigger>
+                <SheetContent side="bottom" className="h-[85vh] sm:h-[85vh]">
+                  <SheetHeader>
+                    <SheetTitle>Payment Details</SheetTitle>
+                    <SheetDescription>
+                      Choose your preferred payment method.
+                    </SheetDescription>
+                  </SheetHeader>
+                  {plan.title === "Large payment" ? (
+                    <div className="grid grid-cols-1 gap-8 mt-6 h-full pb-12 overflow-y-auto">
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-primary">
+                          Cryptocurrency (USDT)
+                        </h3>
+                        <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground">
+                          <li>
+                            This will involve using a cryptocurrency called "Tether
+                            USD"
+                          </li>
+                          <li>
+                            This cryptocurrency is directly linked to the price of
+                            the USD
+                          </li>
+                          <li>
+                            Buy the amount worth of Tether you want to send it to me
+                          </li>
+                          <li>Use the given QR or the given crypto address</li>
+                        </ol>
+                        <div className="mt-4 p-4 bg-secondary/10 rounded-lg border border-border">
+                          <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide">
+                            Crypto Address (ERC-20/BEP-20)
+                          </p>
+                          <p className="font-mono text-sm break-all select-all bg-background p-2 rounded border border-border">
+                            0x1f9cF8db4299Bb0ad2205Bd7fE3B58E1Ee4A60e6
+                          </p>
+                        </div>
+                        <div className="mt-4">
+                          <a
+                            href="https://freeimage.host/i/fVgRNqb"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <img
+                              src="https://iili.io/fVgRNqb.th.png"
+                              alt="Crypto QR Code"
+                              className="rounded-lg border border-border w-full h-auto max-h-[50vh] object-contain"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6 h-full pb-12 overflow-y-auto">
+                      {/* 1st Half: Indian transfers */}
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-primary">
+                          Indian transfers:
+                        </h3>
+                        <div>
+                          <p className="text-muted-foreground">
+                            Transfer me money through UPI
+                          </p>
+                          <p className="font-mono bg-secondary/20 p-2 rounded mt-1 inline-block">
+                            9823780410@fam
+                          </p>
+                        </div>
+                        <div className="mt-4">
+                          <a
+                            href="https://freeimage.host/i/fVUY2vp"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <img
+                              src="https://iili.io/fVUY2vp.th.jpg"
+                              alt="Payment QR Code"
+                              className="rounded-lg border border-border w-full h-auto max-h-[50vh] object-contain"
+                            />
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* 2nd Half: International transfers */}
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-primary">
+                          International transfers:
+                        </h3>
+                        <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground">
+                          <li>
+                            Go to{" "}
+                            <a
+                              href="https://wise.com/in/send-money/send-money-to-india"
+                              target="_blank"
+                              rel="noreferrer"
+                              className="text-primary hover:underline"
+                            >
+                              Wise
+                            </a>
+                          </li>
+                          <li>
+                            Select the amount (below 111 USD or 94 EURO)
+                          </li>
+                          <li>Select recipient country: India</li>
+                          <li>Click "Send money"</li>
+                          <li>Click on "Add recipient"</li>
+                          <li>Click on "See all options"</li>
+                          <li>Click on "UPI"</li>
+                          <li>
+                            Enter UPI ID:{" "}
+                            <span className="font-mono bg-secondary/20 p-1 rounded">
+                              9823780410@fam
+                            </span>
+                          </li>
+                          <li>Transfer money</li>
+                        </ol>
+                        <div className="mt-4">
+                          <a
+                            href="https://freeimage.host/i/fVgJNfa"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <img
+                              src="https://iili.io/fVgJNfa.th.png"
+                              alt="Visual Guide"
+                              className="rounded-lg border border-border w-full h-auto max-h-[50vh] object-contain"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </SheetContent>
+              </Sheet>
             </GlassCard>
           ))}
         </section>
@@ -154,27 +302,7 @@ export default function Payments() {
           ))}
         </section>
 
-        <GlassCard className="flex flex-col gap-6 md:flex-row md:items-center justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-secondary/80">
-              Engagement flow
-            </p>
-            <h3 className="text-2xl font-semibold mt-2">
-              Simple 3-step billing
-            </h3>
-            <p className="text-muted-foreground">
-              30% deposit to lock in the sprint → milestone releases for each
-              phase → final polish & handoff on completion.
-            </p>
-          </div>
-          <Button
-            size="lg"
-            className="rounded-full"
-            onClick={() => navigate("/contact")}
-          >
-            Reserve a sprint
-          </Button>
-        </GlassCard>
+
       </div>
       <Footer />
     </div>
