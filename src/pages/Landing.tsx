@@ -19,11 +19,13 @@ export default function Landing() {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-[100px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column: Text Content */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-left"
             >
               <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6">
                 Scale Retail,
@@ -32,12 +34,12 @@ export default function Landing() {
                   Realize Dreams
                 </span>
               </h1>
-              <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+              <p className="mt-4 text-xl text-muted-foreground max-w-2xl mb-8">
                 Hi, I'm Pranav (known online as Aspid), a young and ambitious
                 web developer passionate about turning ideas into powerful
                 digital realities.
               </p>
-              <div className="flex justify-center gap-4">
+              <div className="flex justify-start gap-4">
                 <Button
                   size="lg"
                   className="rounded-full"
@@ -53,6 +55,29 @@ export default function Landing() {
                 >
                   Contact Me
                 </Button>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Profile Picture */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex justify-center lg:justify-end"
+            >
+              <div className="relative group">
+                {/* Decorative background for image */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+
+                <div className="relative glass-panel p-2 overflow-hidden aspect-square w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center">
+                  <a href="https://freeimage.host/i/fVvQP0F" target="_blank" rel="noopener noreferrer" className="w-full h-full">
+                    <img
+                      src="https://iili.io/fVvQP0F.th.png"
+                      alt="Aspid Profile"
+                      className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>
