@@ -11,13 +11,13 @@ export default function Landing() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px]" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-[100px]" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <motion.div
@@ -33,13 +33,24 @@ export default function Landing() {
                 </span>
               </h1>
               <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                Hi, I'm Pranav (known online as Aspid), a young and ambitious web developer passionate about turning ideas into powerful digital realities.
+                Hi, I'm Pranav (known online as Aspid), a young and ambitious
+                web developer passionate about turning ideas into powerful
+                digital realities.
               </p>
               <div className="flex justify-center gap-4">
-                <Button size="lg" className="rounded-full" onClick={() => navigate("/projects")}>
+                <Button
+                  size="lg"
+                  className="rounded-full"
+                  onClick={() => navigate("/projects")}
+                >
                   View Work <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button size="lg" variant="outline" className="rounded-full glass hover:bg-white/10" onClick={() => navigate("/contact")}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full glass hover:bg-white/10"
+                  onClick={() => navigate("/contact")}
+                >
                   Contact Me
                 </Button>
               </div>

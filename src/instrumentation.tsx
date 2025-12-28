@@ -63,9 +63,7 @@ function ErrorDialog({
           </Collapsible>
         </div>
         <DialogFooter>
-          <Button onClick={() => window.location.reload()}>
-            Reload Page
-          </Button>
+          <Button onClick={() => window.location.reload()}>Reload Page</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
@@ -110,7 +108,7 @@ class ErrorBoundary extends React.Component<
             error: "An error occurred",
             stack: "",
           }}
-          setError={() => { }}
+          setError={() => {}}
         />
       );
     }

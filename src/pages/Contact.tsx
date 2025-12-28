@@ -44,48 +44,69 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl font-bold mb-4">Get In Touch</h1>
-          <p className="text-muted-foreground">Have a project in mind? Let's talk.</p>
+          <p className="text-muted-foreground">
+            Have a project in mind? Let's talk.
+          </p>
         </motion.div>
 
         <GlassCard className="max-w-xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+              <label htmlFor="name" className="block text-sm font-medium mb-2">
+                Name
+              </label>
               <Input
                 id="name"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 required
                 className="bg-white/5 border-white/10 focus:border-primary/50"
                 placeholder="Your name"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+              <label htmlFor="email" className="block text-sm font-medium mb-2">
+                Email
+              </label>
               <Input
                 id="email"
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
                 className="bg-white/5 border-white/10 focus:border-primary/50"
                 placeholder="your@email.com"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium mb-2"
+              >
+                Message
+              </label>
               <Textarea
                 id="message"
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 required
                 className="bg-white/5 border-white/10 focus:border-primary/50 min-h-[150px]"
                 placeholder="Tell me about your project..."
               />
             </div>
             <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Sending..." : (
-                <>Send Message <Send className="ml-2 h-4 w-4" /></>
+              {isSubmitting ? (
+                "Sending..."
+              ) : (
+                <>
+                  Send Message <Send className="ml-2 h-4 w-4" />
+                </>
               )}
             </Button>
           </form>

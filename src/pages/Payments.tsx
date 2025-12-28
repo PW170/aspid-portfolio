@@ -11,18 +11,16 @@ const paymentPlans = [
     title: "Basic",
     price: "$25",
     timeline: "3-day delivery",
-    description: "Essential landing page or personal site to get you started online.",
-    features: [
-      "Single page layout",
-      "Mobile responsive",
-      "Basic SEO setup",
-    ],
+    description:
+      "Essential landing page or personal site to get you started online.",
+    features: ["Single page layout", "Mobile responsive", "Basic SEO setup"],
   },
   {
     title: "Decent",
     price: "$50",
     timeline: "1-week delivery",
-    description: "Multi-page website with custom styling and interactive elements.",
+    description:
+      "Multi-page website with custom styling and interactive elements.",
     features: [
       "Up to 5 pages",
       "Contact form integration",
@@ -33,7 +31,8 @@ const paymentPlans = [
     title: "Ecommerce",
     price: "$150",
     timeline: "2-week delivery",
-    description: "Full online store setup with product management and payment processing.",
+    description:
+      "Full online store setup with product management and payment processing.",
     features: [
       "Product catalog setup",
       "Shopping cart & checkout",
@@ -45,17 +44,20 @@ const paymentPlans = [
 const paymentHighlights = [
   {
     title: "Secure Milestone Releases",
-    description: "Every payment is tied to accepted deliverables, so you only pay when value is delivered.",
+    description:
+      "Every payment is tied to accepted deliverables, so you only pay when value is delivered.",
     icon: Shield,
   },
   {
     title: "Transparent Timeline",
-    description: "Upfront schedules keep you in the loop on what's shipping and when.",
+    description:
+      "Upfront schedules keep you in the loop on what's shipping and when.",
     icon: Clock3,
   },
   {
     title: "Value-First Approach",
-    description: "Each sprint focuses on revenue-driving features to keep momentum high.",
+    description:
+      "Each sprint focuses on revenue-driving features to keep momentum high.",
     icon: Sparkles,
   },
 ];
@@ -82,11 +84,16 @@ export default function Payments() {
             </span>
           </h1>
           <p className="text-muted-foreground max-w-3xl mx-auto">
-            Choose the collaboration style that meets your timeline and risk profile. Every
-            engagement is milestone-based, so you can scale confidently while maintaining cash flow.
+            Choose the collaboration style that meets your timeline and risk
+            profile. Every engagement is milestone-based, so you can scale
+            confidently while maintaining cash flow.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <Button size="lg" className="rounded-full" onClick={() => navigate("/contact")}>
+            <Button
+              size="lg"
+              className="rounded-full"
+              onClick={() => navigate("/contact")}
+            >
               Book a discovery call
             </Button>
             <Button
@@ -102,11 +109,19 @@ export default function Payments() {
 
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {paymentPlans.map((plan) => (
-            <GlassCard key={plan.title} hoverEffect className="flex flex-col gap-6">
+            <GlassCard
+              key={plan.title}
+              hoverEffect
+              className="flex flex-col gap-6"
+            >
               <div className="space-y-2">
-                <p className="text-xs uppercase tracking-[0.25em] text-secondary/80">Plan</p>
+                <p className="text-xs uppercase tracking-[0.25em] text-secondary/80">
+                  Plan
+                </p>
                 <h3 className="text-2xl font-semibold">{plan.title}</h3>
-                <p className="text-muted-foreground text-sm">{plan.description}</p>
+                <p className="text-muted-foreground text-sm">
+                  {plan.description}
+                </p>
               </div>
               <div>
                 <span className="text-3xl font-bold">{plan.price}</span>
@@ -144,13 +159,19 @@ export default function Payments() {
             <p className="text-xs uppercase tracking-[0.25em] text-secondary/80">
               Engagement flow
             </p>
-            <h3 className="text-2xl font-semibold mt-2">Simple 3-step billing</h3>
+            <h3 className="text-2xl font-semibold mt-2">
+              Simple 3-step billing
+            </h3>
             <p className="text-muted-foreground">
-              30% deposit to lock in the sprint → milestone releases for each phase → final polish &
-              handoff on completion.
+              30% deposit to lock in the sprint → milestone releases for each
+              phase → final polish & handoff on completion.
             </p>
           </div>
-          <Button size="lg" className="rounded-full" onClick={() => navigate("/contact")}>
+          <Button
+            size="lg"
+            className="rounded-full"
+            onClick={() => navigate("/contact")}
+          >
             Reserve a sprint
           </Button>
         </GlassCard>

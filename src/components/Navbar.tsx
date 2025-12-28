@@ -29,12 +29,15 @@ export function Navbar() {
     >
       <div className="glass rounded-full px-4 py-2 flex items-center justify-between border border-white/10 shadow-2xl bg-black/40 backdrop-blur-xl">
         {/* Logo */}
-        <div className="flex-shrink-0 cursor-pointer pl-2" onClick={() => navigate("/")}>
+        <div
+          className="flex-shrink-0 cursor-pointer pl-2"
+          onClick={() => navigate("/")}
+        >
           <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
             Aspid
           </span>
         </div>
-        
+
         {/* Desktop Menu - Button Box */}
         <div className="hidden md:flex items-center space-x-1 bg-white/5 rounded-full px-2 py-1 border border-white/5 mx-4">
           {navLinks.map((link) => (
@@ -43,16 +46,16 @@ export function Navbar() {
               onClick={() => navigate(link.href)}
               className={cn(
                 "px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300",
-                isActive(link.href) 
-                  ? "bg-primary/20 text-primary" 
-                  : "text-foreground/80 hover:text-primary hover:bg-white/10"
+                isActive(link.href)
+                  ? "bg-primary/20 text-primary"
+                  : "text-foreground/80 hover:text-primary hover:bg-white/10",
               )}
             >
               {link.name}
             </button>
           ))}
         </div>
-        
+
         {/* Auth Button */}
         <div className="hidden md:block pr-1">
           {isAuthenticated && (
@@ -66,7 +69,7 @@ export function Navbar() {
             </Button>
           )}
         </div>
-        
+
         {/* Mobile Menu Toggle */}
         <div className="md:hidden pr-1">
           <button
@@ -99,7 +102,7 @@ export function Navbar() {
                   "block px-4 py-3 rounded-xl text-base font-medium transition-colors text-center w-full",
                   isActive(link.href)
                     ? "bg-primary/20 text-primary"
-                    : "text-foreground/80 hover:text-primary hover:bg-white/10"
+                    : "text-foreground/80 hover:text-primary hover:bg-white/10",
                 )}
               >
                 {link.name}

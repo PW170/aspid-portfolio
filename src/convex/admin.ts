@@ -2,7 +2,7 @@ import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 import { getAuthUserId } from "@convex-dev/auth/server";
 
-// Helper to check if user is admin (for now, we'll just check if they are logged in, 
+// Helper to check if user is admin (for now, we'll just check if they are logged in,
 // but in a real app you'd check roles)
 async function checkAuth(ctx: any) {
   const userId = await getAuthUserId(ctx);

@@ -1,4 +1,3 @@
-
 import { mutation } from "./_generated/server";
 
 export const seedData = mutation({
@@ -33,9 +32,6 @@ export const seedData = mutation({
       imageUrl: "https://iili.io/fVc1lix.md.png",
     });
 
-
-
-
     // Check if skills exist
     const existingSkills = await ctx.db.query("skills").first();
     if (!existingSkills) {
@@ -61,7 +57,5 @@ export const seedData = mutation({
     for (const exp of experiences) {
       await ctx.db.delete(exp._id);
     }
-
-
   },
 });

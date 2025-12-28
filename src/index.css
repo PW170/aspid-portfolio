@@ -45,41 +45,41 @@
 /* CHANGE VALUES FOR THEME */
 :root {
   --radius: 1rem;
-  
+
   /* Dark Red and Black Theme */
   --background: oklch(0.05 0.01 20); /* Very dark, almost black */
   --foreground: oklch(0.98 0.01 20); /* White text */
-  
+
   /* Glassmorphism Card - Semi-transparent black/dark red */
   --card: oklch(0.1 0.02 20 / 0.6);
   --card-foreground: oklch(0.98 0.01 20);
-  
+
   --popover: oklch(0.1 0.02 20 / 0.9);
   --popover-foreground: oklch(0.98 0.01 20);
-  
+
   --primary: oklch(0.6 0.22 25); /* Vibrant Red */
   --primary-foreground: oklch(0.98 0.01 20);
-  
+
   --secondary: oklch(0.3 0.1 25); /* Deep Red/Maroon */
   --secondary-foreground: oklch(0.98 0.01 20);
-  
+
   --muted: oklch(0.2 0.02 20);
   --muted-foreground: oklch(0.7 0.05 20);
-  
+
   --accent: oklch(0.3 0.1 25 / 0.4);
   --accent-foreground: oklch(0.98 0.01 20);
-  
+
   --destructive: oklch(0.5 0.2 25);
   --border: oklch(0.6 0.22 25 / 0.2); /* Subtle red border */
   --input: oklch(0.2 0.02 20);
   --ring: oklch(0.6 0.22 25 / 0.5);
-  
+
   --chart-1: oklch(0.6 0.22 25);
   --chart-2: oklch(0.5 0.2 25);
   --chart-3: oklch(0.4 0.15 25);
   --chart-4: oklch(0.3 0.1 25);
   --chart-5: oklch(0.7 0.2 25);
-  
+
   --sidebar: oklch(0.1 0.02 20 / 0.8);
   --sidebar-foreground: oklch(0.98 0.01 20);
   --sidebar-primary: oklch(0.6 0.22 25);
@@ -134,24 +134,56 @@
   body {
     @apply bg-background text-foreground;
     /* Dark Red/Black Gradient Background */
-    background: 
-      radial-gradient(circle at 0% 0%, oklch(0.4 0.15 25 / 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 100% 0%, oklch(0.3 0.1 25 / 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 100% 100%, oklch(0.2 0.05 25 / 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 0% 100%, oklch(0.3 0.1 25 / 0.3) 0%, transparent 50%),
+    background:
+      radial-gradient(
+        circle at 0% 0%,
+        oklch(0.4 0.15 25 / 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 100% 0%,
+        oklch(0.3 0.1 25 / 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 100% 100%,
+        oklch(0.2 0.05 25 / 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 0% 100%,
+        oklch(0.3 0.1 25 / 0.3) 0%,
+        transparent 50%
+      ),
       oklch(0.05 0.01 20); /* Base black */
     background-attachment: fixed;
   }
   .dark body {
-    background: 
-      radial-gradient(circle at 0% 0%, oklch(0.4 0.15 25 / 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 100% 0%, oklch(0.3 0.1 25 / 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 100% 100%, oklch(0.2 0.05 25 / 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 0% 100%, oklch(0.3 0.1 25 / 0.3) 0%, transparent 50%),
+    background:
+      radial-gradient(
+        circle at 0% 0%,
+        oklch(0.4 0.15 25 / 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 100% 0%,
+        oklch(0.3 0.1 25 / 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 100% 100%,
+        oklch(0.2 0.05 25 / 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 0% 100%,
+        oklch(0.3 0.1 25 / 0.3) 0%,
+        transparent 50%
+      ),
       oklch(0.05 0.01 20);
     background-attachment: fixed;
   }
-  
+
   button:not([disabled]),
   [role="button"]:not([disabled]) {
     cursor: pointer;

@@ -91,15 +91,15 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
     } catch (error) {
       console.error("Guest login error:", error);
       console.error("Error details:", JSON.stringify(error, null, 2));
-      setError(`Failed to sign in as guest: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      setError(
+        `Failed to sign in as guest: ${error instanceof Error ? error.message : "Unknown error"}`,
+      );
       setIsLoading(false);
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-
-
       {/* Auth Content */}
       <div className="flex-1 flex items-center justify-center">
         <div className="flex items-center justify-center h-full flex-col">
@@ -114,7 +114,6 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
                 </CardHeader>
                 <form onSubmit={handleEmailSubmit}>
                   <CardContent>
-
                     <div className="relative flex items-center gap-2">
                       <div className="relative flex-1">
                         <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
@@ -190,9 +189,15 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
                         maxLength={6}
                         disabled={isLoading}
                         onKeyDown={(e) => {
-                          if (e.key === "Enter" && otp.length === 6 && !isLoading) {
+                          if (
+                            e.key === "Enter" &&
+                            otp.length === 6 &&
+                            !isLoading
+                          ) {
                             // Find the closest form and submit it
-                            const form = (e.target as HTMLElement).closest("form");
+                            const form = (e.target as HTMLElement).closest(
+                              "form",
+                            );
                             if (form) {
                               form.requestSubmit();
                             }
@@ -253,7 +258,6 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
                 </form>
               </>
             )}
-
           </Card>
         </div>
       </div>
